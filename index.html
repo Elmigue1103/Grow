@@ -1,0 +1,539 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROW - Entrenamiento y Dieta</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <img src="/IMG_20250306_191014.jpg" alt="GROW Logo">
+            </div>
+            <p class="tagline">Entrena, come, sonríe, repite.</p>
+        </header>
+
+        <main>
+            <section id="welcome-screen" class="screen active">
+                <h1>¡Bienvenido a GROW!</h1>
+                <p>Tu app de entrenamiento y dieta con un toque de humor</p>
+                <button id="start-btn" class="primary-btn">Comenzar mi viaje</button>
+            </section>
+
+            <section id="profile-setup" class="screen">
+                <h2>Cuéntanos sobre ti</h2>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="age">Edad</label>
+                        <input type="number" id="age" min="16" max="99" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Sexo</label>
+                        <div class="radio-group">
+                            <input type="radio" id="male" name="gender" value="male" required>
+                            <label for="male">Masculino</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Femenino</label>
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other">Otro</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Peso (kg)</label>
+                        <input type="number" id="weight" min="30" max="250" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Altura (cm)</label>
+                        <input type="number" id="height" min="100" max="250" required>
+                    </div>
+                    <button type="button" id="next-activity" class="primary-btn">Siguiente</button>
+                </form>
+            </section>
+
+            <section id="activity-setup" class="screen">
+                <h2>Tu actividad física</h2>
+                <form id="activity-form">
+                    <div class="form-group">
+                        <label>Nivel de actividad actual</label>
+                        <select id="activity-level" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="sedentary">Sedentario (poco o nada de ejercicio)</option>
+                            <option value="light">Ligero (1-3 días/semana)</option>
+                            <option value="moderate">Moderado (3-5 días/semana)</option>
+                            <option value="active">Activo (6-7 días/semana)</option>
+                            <option value="very-active">Muy activo (ejercicio intenso diario)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferencias de entrenamiento</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="cardio" name="training" value="cardio">
+                            <label for="cardio">Cardio</label>
+                            <input type="checkbox" id="strength" name="training" value="strength">
+                            <label for="strength">Fuerza</label>
+                            <input type="checkbox" id="flexibility" name="training" value="flexibility">
+                            <label for="flexibility">Flexibilidad</label>
+                            <input type="checkbox" id="hiit" name="training" value="hiit">
+                            <label for="hiit">HIIT</label>
+                            <input type="checkbox" id="yoga" name="training" value="yoga">
+                            <label for="yoga">Yoga</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="limitations">Limitaciones físicas o enfermedades</label>
+                        <textarea id="limitations" rows="3" placeholder="Ejemplo: Lesión de rodilla, hipertensión..."></textarea>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" id="prev-profile" class="secondary-btn">Anterior</button>
+                        <button type="button" id="next-diet" class="primary-btn">Siguiente</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="diet-setup" class="screen">
+                <h2>Tus preferencias alimenticias</h2>
+                <form id="diet-form">
+                    <div class="form-group">
+                        <label>Preferencias alimenticias</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="meat" name="diet" value="meat" checked>
+                            <label for="meat">Carnes</label>
+                            <input type="checkbox" id="fish" name="diet" value="fish" checked>
+                            <label for="fish">Pescados</label>
+                            <input type="checkbox" id="dairy" name="diet" value="dairy" checked>
+                            <label for="dairy">Lácteos</label>
+                            <input type="checkbox" id="vegetable" name="diet" value="vegetable" checked>
+                            <label for="vegetable">Vegetales</label>
+                            <input type="checkbox" id="fruit" name="diet" value="fruit" checked>
+                            <label for="fruit">Frutas</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de dieta</label>
+                        <select id="diet-type" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="omnivore">Omnívora</option>
+                            <option value="vegetarian">Vegetariana</option>
+                            <option value="vegan">Vegana</option>
+                            <option value="pescatarian">Pescatariana</option>
+                            <option value="keto">Cetogénica</option>
+                            <option value="paleo">Paleo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="allergies">Alergias alimenticias</label>
+                        <textarea id="allergies" rows="3" placeholder="Ejemplo: Gluten, frutos secos..."></textarea>
+                    </div>
+                    <div class="nav-buttons">
+                        <button type="button" id="prev-activity" class="secondary-btn">Anterior</button>
+                        <button type="button" id="complete-setup" class="primary-btn">Completar perfil</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="dashboard" class="screen">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="plan">Mi Plan</button>
+                    <button class="tab-btn" data-tab="workout">Entrenamiento</button>
+                    <button class="tab-btn" data-tab="diet">Dieta</button>
+                    <button class="tab-btn" data-tab="calendar">Calendario</button>
+                    <button class="tab-btn" data-tab="profile">Perfil</button>
+                </div>
+                
+                <div id="plan-tab" class="tab-content active">
+                    <div class="greeting">
+                        <h2>¡Hola, <span id="user-name">campeón</span>!</h2>
+                        <p id="motivational-message">Es un gran día para seguir creciendo. ¿Listo para dar lo mejor hoy?</p>
+                    </div>
+                    
+                    <div class="today-plan">
+                        <h3>Tu plan para hoy</h3>
+                        <div class="plan-card workout">
+                            <div class="card-icon"><i class="fas fa-dumbbell"></i></div>
+                            <div class="card-content">
+                                <h4>Entrenamiento</h4>
+                                <p id="workout-description">Entrenamiento de fuerza: Piernas y Core</p>
+                                <button class="action-btn" id="start-workout">Comenzar</button>
+                            </div>
+                        </div>
+                        <div class="plan-card meal">
+                            <div class="card-icon"><i class="fas fa-utensils"></i></div>
+                            <div class="card-content">
+                                <h4>Comidas de hoy</h4>
+                                <ul id="meals-list">
+                                    <li>Desayuno: Tostadas de aguacate y huevo</li>
+                                    <li>Almuerzo: Ensalada de pollo y quinoa</li>
+                                    <li>Cena: Salmón al horno con vegetales</li>
+                                </ul>
+                                <button class="action-btn" id="view-meals">Ver detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <h3>Tu progreso</h3>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                            <p>65% completado este mes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="rewards-section">
+                        <div class="rewards-header">
+                            <h3>Recompensas</h3>
+                            <div class="points-display"><i class="fas fa-star"></i> <span id="points-value">120</span> puntos</div>
+                        </div>
+                        <div class="rewards-grid" id="rewards-grid">
+                            <!-- Rewards will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="workout-tab" class="tab-content">
+                    <h2>Entrenamiento de hoy</h2>
+                    <div class="workout-details">
+                        <div class="workout-header">
+                            <h3>Fuerza: Piernas y Core</h3>
+                            <p>Duración estimada: 60 minutos</p>
+                        </div>
+                        
+                        <div class="workout-phase">
+                            <h4><span class="phase-tag">Fase 1</span> Calentamiento (10 min)</h4>
+                            <ul class="exercise-list">
+                                <li>Movilidad articular - 3 min</li>
+                                <li>Saltos suaves - 3 min</li>
+                                <li>Estiramientos dinámicos - 4 min</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="workout-phase">
+                            <h4><span class="phase-tag">Fase 2</span> Ejercicios poliarticulares (15 min)</h4>
+                            <ul class="exercise-list">
+                                <li>Sentadillas - 3 series x 12 reps</li>
+                                <li>Peso muerto rumano - 3 series x 10 reps</li>
+                                <li>Zancadas - 3 series x 10 reps por pierna</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="workout-phase">
+                            <h4><span class="phase-tag">Fase 3</span> Ejercicios de fuerza (20 min)</h4>
+                            <ul class="exercise-list">
+                                <li>Extensiones de cuádriceps - 3 series x 12 reps</li>
+                                <li>Curl de isquiotibiales - 3 series x 12 reps</li>
+                                <li>Abductores - 3 series x 15 reps</li>
+                                <li>Plancha abdominal - 3 series x 30 seg</li>
+                                <li>Crunch abdominal - 3 series x 15 reps</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="workout-phase">
+                            <h4><span class="phase-tag">Fase 4</span> Cardio divertido (5 min)</h4>
+                            <ul class="exercise-list">
+                                <li>Saltos de estrella - 30 seg</li>
+                                <li>Descanso - 15 seg</li>
+                                <li>Skipping alto - 30 seg</li>
+                                <li>Descanso - 15 seg</li>
+                                <li>Burpees suaves - 30 seg</li>
+                                <li>Descanso - 15 seg</li>
+                                <li>Mountain climbers - 30 seg</li>
+                                <li>Descanso - 15 seg</li>
+                                <li>Saltos laterales - 30 seg</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="workout-phase">
+                            <h4><span class="phase-tag">Fase 5</span> Estiramiento (10 min)</h4>
+                            <ul class="exercise-list">
+                                <li>Estiramiento de cuádriceps - 30 seg por pierna</li>
+                                <li>Estiramiento de isquiotibiales - 30 seg por pierna</li>
+                                <li>Estiramiento de glúteos - 30 seg por pierna</li>
+                                <li>Estiramiento de espalda - 30 seg</li>
+                                <li>Estiramiento de hombros - 30 seg por lado</li>
+                                <li>Respiraciones profundas - 2 min</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="workout-actions">
+                            <button class="primary-btn" id="complete-workout" onclick="completeExercise()">Completar entrenamiento</button>
+                            <button class="secondary-btn" id="save-for-later">Guardar para después</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="diet-tab" class="tab-content">
+                    <h2>Plan de alimentación</h2>
+                    
+                    <div class="meal-plan">
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <h3>Desayuno</h3>
+                                <span class="meal-time">8:00 AM</span>
+                            </div>
+                            <div class="meal-details">
+                                <h4>Tostadas de aguacate y huevo</h4>
+                                <ul class="ingredients">
+                                    <li>2 rebanadas de pan integral</li>
+                                    <li>1 aguacate mediano</li>
+                                    <li>2 huevos</li>
+                                    <li>Tomate cherry</li>
+                                    <li>Sal y pimienta al gusto</li>
+                                </ul>
+                                <div class="nutrition-info">
+                                    <span>420 kcal</span>
+                                    <span>22g proteína</span>
+                                    <span>25g grasas</span>
+                                    <span>30g carbos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <h3>Media mañana</h3>
+                                <span class="meal-time">11:00 AM</span>
+                            </div>
+                            <div class="meal-details">
+                                <h4>Batido verde energético</h4>
+                                <ul class="ingredients">
+                                    <li>1 plátano</li>
+                                    <li>Puñado de espinacas</li>
+                                    <li>1 cucharada de mantequilla de almendras</li>
+                                    <li>1 vaso de leche de almendras</li>
+                                    <li>1 cucharadita de miel (opcional)</li>
+                                </ul>
+                                <div class="nutrition-info">
+                                    <span>220 kcal</span>
+                                    <span>5g proteína</span>
+                                    <span>10g grasas</span>
+                                    <span>30g carbos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <h3>Almuerzo</h3>
+                                <span class="meal-time">2:00 PM</span>
+                            </div>
+                            <div class="meal-details">
+                                <h4>Ensalada de pollo y quinoa</h4>
+                                <ul class="ingredients">
+                                    <li>150g de pechuga de pollo a la plancha</li>
+                                    <li>1/2 taza de quinoa cocida</li>
+                                    <li>Mezcla de hojas verdes</li>
+                                    <li>1/4 de aguacate</li>
+                                    <li>Tomates cherry</li>
+                                    <li>Aliño: aceite de oliva, limón y especias</li>
+                                </ul>
+                                <div class="nutrition-info">
+                                    <span>480 kcal</span>
+                                    <span>40g proteína</span>
+                                    <span>18g grasas</span>
+                                    <span>35g carbos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <h3>Merienda</h3>
+                                <span class="meal-time">5:00 PM</span>
+                            </div>
+                            <div class="meal-details">
+                                <h4>Mix de frutos secos</h4>
+                                <ul class="ingredients">
+                                    <li>10 almendras</li>
+                                    <li>10 nueces</li>
+                                    <li>1 pieza de fruta de temporada</li>
+                                </ul>
+                                <div class="nutrition-info">
+                                    <span>210 kcal</span>
+                                    <span>6g proteína</span>
+                                    <span>15g grasas</span>
+                                    <span>15g carbos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="meal-card">
+                            <div class="meal-header">
+                                <h3>Cena</h3>
+                                <span class="meal-time">8:30 PM</span>
+                            </div>
+                            <div class="meal-details">
+                                <h4>Salmón al horno con vegetales</h4>
+                                <ul class="ingredients">
+                                    <li>150g de salmón</li>
+                                    <li>Brócoli al vapor</li>
+                                    <li>Zanahoria asada</li>
+                                    <li>1/2 taza de arroz integral</li>
+                                    <li>Aliño: limón, ajo y hierbas</li>
+                                </ul>
+                                <div class="nutrition-info">
+                                    <span>450 kcal</span>
+                                    <span>35g proteína</span>
+                                    <span>20g grasas</span>
+                                    <span>30g carbos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="water-tracker">
+                        <h3>Seguimiento de agua</h3>
+                        <div class="water-glasses">
+                            <div class="glass" data-filled="true"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="true"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="true"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="false"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="false"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="false"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="false"><i class="fas fa-glass-water"></i></div>
+                            <div class="glass" data-filled="false"><i class="fas fa-glass-water"></i></div>
+                        </div>
+                        <p>3 de 8 vasos completados</p>
+                    </div>
+                </div>
+                
+                <div id="calendar-tab" class="tab-content">
+                    <h2>Mi Calendario Mensual</h2>
+                    
+                    <div class="calendar-controls">
+                        <div class="month-navigation">
+                            <button id="prev-month" class="calendar-nav-btn"><i class="fas fa-chevron-left"></i></button>
+                            <h3 id="current-month">Junio 2024</h3>
+                            <button id="next-month" class="calendar-nav-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="workout">Entrenamientos</button>
+                            <button class="view-btn" data-view="diet">Dieta</button>
+                        </div>
+                        <button id="sync-google-cal" class="action-btn"><i class="fab fa-google"></i> Sincronizar con Google</button>
+                    </div>
+                    
+                    <div id="calendar-container"></div>
+                    
+                    <div id="day-details" class="day-details">
+                        <div class="day-header">
+                            <h4 id="selected-date">No hay día seleccionado</h4>
+                            <button id="close-day-details" class="close-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div id="day-content" class="day-content">
+                            <p class="empty-day">Selecciona un día para ver los detalles</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="profile-tab" class="tab-content">
+                    <h2>Mi Perfil</h2>
+                    
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <div class="avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="user-info">
+                                <h3 id="profile-name">Usuario GROW</h3>
+                                <p id="profile-stats">30 años • 70kg • 175cm</p>
+                                <p id="profile-goal">Objetivo: Tonificar y ganar resistencia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h4>IMC</h4>
+                                <p class="stat-value">22.9</p>
+                                <p class="stat-label">Normal</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>TMB</h4>
+                                <p class="stat-value">1750</p>
+                                <p class="stat-label">kcal/día</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Proteína</h4>
+                                <p class="stat-value">126g</p>
+                                <p class="stat-label">por día</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>Agua</h4>
+                                <p class="stat-value">2.5L</p>
+                                <p class="stat-label">por día</p>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-actions">
+                            <button class="secondary-btn" id="edit-profile"><i class="fas fa-edit"></i> Editar perfil</button>
+                            <button class="secondary-btn" id="change-goals"><i class="fas fa-bullseye"></i> Cambiar objetivos</button>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements">
+                        <h3>Mis Logros</h3>
+                        <div id="medals-container" class="badges-container">
+                            <!-- Medals will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="forum-section">
+                        <div class="forum-header">
+                            <h3>Comunidad GROW</h3>
+                            <span>Comparte tus logros con otros</span>
+                        </div>
+                        
+                        <div class="create-post">
+                            <textarea id="post-content" placeholder="¿Qué logro quieres compartir hoy?"></textarea>
+                            <div class="post-options">
+                                <div class="post-attachments">
+                                    <button class="attach-btn"><i class="fas fa-image"></i></button>
+                                    <button class="attach-btn"><i class="fas fa-medal"></i></button>
+                                </div>
+                                <button class="action-btn" id="post-to-forum">Publicar</button>
+                            </div>
+                        </div>
+                        
+                        <div id="forum-posts">
+                            <!-- Forum posts will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="chatbot-section">
+                        <div class="chatbot-header">
+                            <h3>GROW Assistant</h3>
+                            <p>Pregúntame cualquier duda sobre entrenamiento y dieta</p>
+                        </div>
+                        <div class="chat-container" id="chat-container">
+                            <div class="chat-message bot">
+                                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                                <div class="message-content">
+                                    <p>¡Hola! Soy el asistente de GROW. ¿En qué puedo ayudarte hoy? Pregúntame sobre ejercicios, nutrición o cualquier duda que tengas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí...">
+                            <button id="send-chat" class="action-btn"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="notification" id="notification">
+            <div class="notification-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="notification-content">
+                <p id="notification-message">¡Hey, campeón! Es hora de tu entrenamiento de hoy. ¿Listo para sudar con una sonrisa?</p>
+            </div>
+            <button class="notification-close" id="close-notification"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

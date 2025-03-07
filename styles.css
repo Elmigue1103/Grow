@@ -1,0 +1,1400 @@
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --primary-light: #A5D6A7;
+    --accent-color: #00C853;
+    --text-dark: #212121;
+    --text-light: #FAFAFA;
+    --text-medium: #757575;
+    --background-dark: #1A1A1A;
+    --background-medium: #282828;
+    --background-light: #333333;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #F44336;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px 0;
+}
+
+.logo {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.logo-text {
+    fill: var(--primary-color);
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo-leaf {
+    fill: var(--primary-color);
+    stroke: var(--primary-light);
+    stroke-width: 1;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+/* Button Styles */
+.primary-btn, .secondary-btn, .action-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    border: 1px solid var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--background-medium);
+    transform: translateY(-2px);
+}
+
+.action-btn {
+    padding: 8px 16px;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Screen Styles */
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Welcome Screen */
+#welcome-screen {
+    text-align: center;
+    padding: 40px 0;
+}
+
+#welcome-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+#welcome-screen p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-medium);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--background-light);
+    border-radius: var(--border-radius);
+    background-color: var(--background-medium);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.radio-group label, .checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 15px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* Profile Setup Screens */
+#profile-setup, #activity-setup, #diet-setup {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+#profile-setup h2, #activity-setup h2, #diet-setup h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Dashboard Styles */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    color: var(--text-medium);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Plan Tab */
+.greeting {
+    margin-bottom: 25px;
+}
+
+.greeting h2 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+#motivational-message {
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+.today-plan {
+    margin-bottom: 30px;
+}
+
+.plan-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: var(--transition);
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.card-icon {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-content h4 {
+    margin-bottom: 5px;
+    color: var(--primary-light);
+}
+
+.progress-section h3 {
+    margin-bottom: 15px;
+}
+
+.progress-container {
+    background-color: var(--background-light);
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: var(--background-dark);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Workout Tab */
+.workout-details {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.workout-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--background-medium);
+}
+
+.workout-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.workout-phase {
+    margin-bottom: 20px;
+}
+
+.phase-tag {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+}
+
+.exercise-list {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.exercise-list li {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.exercise-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.workout-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Diet Tab */
+.meal-plan {
+    margin-bottom: 30px;
+}
+
+.meal-card {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.meal-header {
+    background-color: var(--primary-dark);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meal-header h3 {
+    margin: 0;
+    color: var(--text-light);
+}
+
+.meal-time {
+    font-size: 0.9rem;
+    color: var(--primary-light);
+}
+
+.meal-details {
+    padding: 15px;
+}
+
+.meal-details h4 {
+    margin-bottom: 10px;
+    color: var(--primary-light);
+}
+
+.ingredients {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.ingredients li {
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.ingredients li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.nutrition-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: var(--background-medium);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+.nutrition-info span {
+    background-color: var(--background-dark);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.water-tracker {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    text-align: center;
+}
+
+.water-tracker h3 {
+    margin-bottom: 15px;
+}
+
+.water-glasses {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.glass {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--background-medium);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.glass[data-filled="true"] {
+    background-color: #2196F3;
+    color: var(--text-light);
+}
+
+.glass[data-filled="false"] {
+    color: #2196F3;
+}
+
+.glass:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Tab */
+.profile-card {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--background-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.user-info h3 {
+    margin-bottom: 5px;
+    color: var(--primary-light);
+}
+
+.user-info p {
+    color: var(--text-medium);
+    margin-bottom: 5px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-card {
+    background-color: var(--background-medium);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.stat-card h4 {
+    margin-bottom: 5px;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-medium);
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.achievements h3 {
+    margin-bottom: 15px;
+}
+
+.badges-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .badges-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.badge {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+}
+
+.badge-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 1.2rem;
+}
+
+.badge.locked {
+    opacity: 0.5;
+}
+
+.badge.locked .badge-icon {
+    background-color: var(--text-medium);
+}
+
+/* Rewards System */
+.rewards-section {
+    margin-top: 30px;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+}
+
+.rewards-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.points-display {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.reward-card {
+    background-color: var(--background-medium);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.reward-card.locked::after {
+    content: "🔒";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    background-color: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reward-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.reward-points {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.exercise-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin: 10px 0;
+}
+
+.meal-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .rewards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Medals System */
+.medal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-light);
+    transition: transform 0.3s ease;
+}
+
+.medal:hover {
+    transform: translateY(-5px);
+}
+
+.medal-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.bronze .medal-icon {
+    background: linear-gradient(145deg, #cd7f32, #b06113);
+    color: #ffd9b3;
+}
+
+.silver .medal-icon {
+    background: linear-gradient(145deg, #c0c0c0, #a9a9a9);
+    color: #f5f5f5;
+}
+
+.gold .medal-icon {
+    background: linear-gradient(145deg, #ffd700, #daa520);
+    color: #fff8dc;
+}
+
+.platinum .medal-icon {
+    background: linear-gradient(145deg, #e5e4e2, #989898);
+    color: white;
+    box-shadow: 0 0 15px rgba(229, 228, 226, 0.7);
+}
+
+.diamond .medal-icon {
+    background: linear-gradient(145deg, #b9f2ff, #89CFF0);
+    color: white;
+    box-shadow: 0 0 15px rgba(185, 242, 255, 0.7);
+}
+
+.medal-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.medal-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    text-align: center;
+}
+
+.medal.locked .medal-icon {
+    background: linear-gradient(145deg, #4a4a4a, #333333);
+    color: #666;
+}
+
+.medal.locked .medal-name, 
+.medal.locked .medal-description {
+    color: #666;
+}
+
+/* Community Forum */
+.forum-section {
+    margin-top: 20px;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--background-medium);
+}
+
+.forum-header h3 {
+    margin: 0;
+}
+
+.forum-post {
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-weight: bold;
+}
+
+.author-name {
+    font-weight: bold;
+}
+
+.post-date {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+.post-content {
+    margin-bottom: 15px;
+}
+
+.post-media {
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.post-media img {
+    width: 100%;
+    height: auto;
+}
+
+.post-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-medium);
+    cursor: pointer;
+}
+
+.post-action:hover {
+    color: var(--primary-color);
+}
+
+.create-post {
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.create-post textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    min-height: 80px;
+}
+
+.post-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-attachments {
+    display: flex;
+    gap: 10px;
+}
+
+.attach-btn {
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.attach-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Chatbot Styles */
+.chatbot-section {
+    margin-top: 20px;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+}
+
+.chatbot-header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.chatbot-header h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.chatbot-header p {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+}
+
+.chat-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.chat-message.user {
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.chat-message.bot .message-avatar {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.chat-message.user .message-avatar {
+    background-color: var(--background-dark);
+    color: var(--primary-color);
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+.chat-message.bot .message-content {
+    background-color: var(--background-light);
+}
+
+.chat-message.user .message-content {
+    background-color: var(--primary-dark);
+    text-align: right;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--background-medium);
+    border-radius: var(--border-radius);
+    background-color: var(--background-medium);
+    color: var(--text-light);
+}
+
+.chat-input button {
+    padding: 10px 15px;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-light);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 350px;
+    transform: translateX(120%);
+    transition: transform 0.5s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-icon {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.notification-close:hover {
+    color: var(--text-light);
+}
+
+/* Calendar Styles */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.calendar-nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.calendar-nav-btn:hover {
+    color: var(--primary-color);
+}
+
+.view-toggle {
+    display: flex;
+    gap: 10px;
+}
+
+.view-btn {
+    background-color: var(--background-light);
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    color: var(--text-medium);
+    cursor: pointer;
+}
+
+.view-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+#calendar-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.calendar-day {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    min-height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.calendar-day:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.calendar-day.today {
+    border: 2px solid var(--primary-color);
+}
+
+.calendar-day.other-month {
+    opacity: 0.5;
+}
+
+.calendar-day.active {
+    background-color: var(--background-medium);
+    border: 2px solid var(--primary-color);
+}
+
+.day-number {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.day-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.workout-badge {
+    background-color: var(--primary-color);
+}
+
+.diet-badge {
+    background-color: var(--warning-color);
+}
+
+.day-events {
+    font-size: 0.8rem;
+    color: var(--text-medium);
+    overflow: hidden;
+    flex: 1;
+}
+
+.day-event {
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+}
+
+.event-workout {
+    background-color: rgba(76, 175, 80, 0.3);
+    border-left: 2px solid var(--primary-color);
+}
+
+.event-diet {
+    background-color: rgba(255, 193, 7, 0.3);
+    border-left: 2px solid var(--warning-color);
+}
+
+.day-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background-medium);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--background-light);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-medium);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--text-light);
+}
+
+.day-content {
+    padding: 10px 0;
+}
+
+.empty-day {
+    text-align: center;
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+.day-workout, .day-meal {
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.day-section-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.day-section-content {
+    margin-left: 10px;
+}
+
+.google-auth-container {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 15px;
+    }
+    
+    .tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .workout-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .workout-actions button {
+        width: 100%;
+    }
+    
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .avatar {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .profile-actions {
+        flex-direction: column;
+    }
+    
+    .notification {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+    
+    #calendar-container {
+        grid-template-columns: repeat(7, 1fr);
+        font-size: 0.9rem;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 5px;
+    }
+    
+    .day-number {
+        font-size: 1rem;
+    }
+    
+    .calendar-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid,
+    .badges-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-controls .month-navigation {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .view-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #sync-google-cal {
+        width: 100%;
+    }
+}

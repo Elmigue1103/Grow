@@ -1,0 +1,52 @@
+<!-- activity-setup screen in index.html -->
+<section id="activity-setup" class="screen">
+    <h2>Tu actividad física</h2>
+    <form id="activity-form">
+        <div class="form-group">
+            <label>Nivel de actividad actual</label>
+            <select id="activity-level" required>
+                <option value="">Selecciona una opción</option>
+                <option value="sedentary">Sedentario (poco o nada de ejercicio)</option>
+                <option value="light">Ligero (1-3 días/semana)</option>
+                <option value="moderate">Moderado (3-5 días/semana)</option>
+                <option value="active">Activo (6-7 días/semana)</option>
+                <option value="very-active">Muy activo (ejercicio intenso diario)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Preferencias de entrenamiento</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="cardio" name="training" value="cardio">
+                <label for="cardio">Cardio</label>
+                <input type="checkbox" id="strength" name="training" value="strength">
+                <label for="strength">Fuerza</label>
+                <input type="checkbox" id="flexibility" name="training" value="flexibility">
+                <label for="flexibility">Flexibilidad</label>
+                <input type="checkbox" id="hiit" name="training" value="hiit">
+                <label for="hiit">HIIT</label>
+                <input type="checkbox" id="yoga" name="training" value="yoga">
+                <label for="yoga">Yoga</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="training-time">Tiempo disponible para entrenar</label>
+            <select id="training-time" required>
+                <option value="">Selecciona una opción</option>
+                <option value="15min">15 minutos</option>
+                <option value="30min">30 minutos</option>
+                <option value="45min">45 minutos</option>
+                <option value="60min">60 minutos (1 hora)</option>
+                <option value="90min">90 minutos (1.5 horas)</option>
+                <option value="120min">120 minutos (2 horas)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="limitations">Limitaciones físicas o enfermedades</label>
+            <textarea id="limitations" rows="3" placeholder="Ejemplo: Lesión de rodilla, hipertensión..."></textarea>
+        </div>
+        <div class="nav-buttons">
+            <button type="button" id="prev-profile" class="secondary-btn">Anterior</button>
+            <button type="button" id="next-diet" class="primary-btn">Siguiente</button>
+        </div>
+    </form>
+</section>
